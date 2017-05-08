@@ -77,7 +77,7 @@ $db['default'] = array(
 	'dsn'	=> 'mysql:dbname=dabadest;host=localhost',
 	'hostname' => 'localhost',
 	'username' => 'Client1',
-	'password' => 'Test1',
+	'password' => 'Test2',
 	'database' => 'dabadest',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',

@@ -20,7 +20,9 @@ class DeviceTypes extends CI_Controller {
 		}
 		else if($this->session->userdata('userState') == 2)
 		{
-				
+			$this->load->model('devicetype');
+			$data['result'] = $this->devicetype->getRows();
+			
 			$this->load->view('devicetypes/adminview', $data);
 		}
 		else
@@ -32,14 +34,27 @@ class DeviceTypes extends CI_Controller {
 	{
 		$data = array();
 		$deviceTypeData = array();
-		if($this->input->post('regisSubmit')){
+		if($this->input->post('addTypeSubmit')){
 			$this->form_validation->set_rules('typename', 'TypeName', 'required');
 			
-			$userData = array(
+			$deviceTypeData = array(
 					'typename' => strip_tags($this->input->post('typename')),
 			);
-		
+			
+			if($this->form_validation->run() == true){
+				$insert = $this->devicetype->insert($deviceTypeData);
+				if($insert){
+					$this->session->set_userdata('success_msg', 'The device has been added');
+					redirect('devicetypes/viewdevicetype');
+				}else{
+					$data['error_msg'] = 'Some problems occured, please try again.';
+				}
+			}
 		}
+		
+		$data['devicetye'] = $deviceTypeData;
+		
+		$this->load->view('devicetypes/adddevicetype', $data);
 	}
 	
 }
