@@ -11,7 +11,7 @@
           <?php echo form_error('typename','<span class="help-block">','</span>'); ?>
         </div>
         <div class="form-group">
-            <input type="submit" name="addTypeSubmit" class="btn-primary" value="Submit"/>
+            <input type="submit" name="submit" class="btn-primary" value="Submit"/>
         </div>
     </form>              
 </div>

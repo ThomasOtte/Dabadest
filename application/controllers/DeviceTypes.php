@@ -9,18 +9,16 @@ class DeviceTypes extends CI_Controller {
 		$this->load->model('devicetype');
 	}
 	
-	public function viewdevicetype() {
+	public function viewdevicetype($slug = NULL) {
 		$data = array();
 		if($this->session->userdata('userState') == 1)
 		{
-			$this->load->model('devicetype');
    		    $data['result'] = $this->devicetype->getRows();   
 				
 			$this->load->view('devicetypes/managementview', $data);
 		}
 		else if($this->session->userdata('userState') == 2)
 		{
-			$this->load->model('devicetype');
 			$data['result'] = $this->devicetype->getRows();
 			
 			$this->load->view('devicetypes/adminview', $data);
@@ -32,29 +30,62 @@ class DeviceTypes extends CI_Controller {
 	}
 	public function adddevicetype()
 	{
-		$data = array();
-		$deviceTypeData = array();
-		if($this->input->post('addTypeSubmit')){
-			$this->form_validation->set_rules('typename', 'TypeName', 'required');
-			
-			$deviceTypeData = array(
-					'typename' => strip_tags($this->input->post('typename')),
-			);
-			
+		    $this->form_validation->set_rules('typename', 'TypeName', 'required');
+		   // var_dump($this);
 			if($this->form_validation->run() == true){
-				$insert = $this->devicetype->insert($deviceTypeData);
-				if($insert){
-					$this->session->set_userdata('success_msg', 'The device has been added');
-					redirect('devicetypes/viewdevicetype');
-				}else{
-					$data['error_msg'] = 'Some problems occured, please try again.';
-				}
+				
+				$this->devicetype->setType();
+				$this->session->set_userdata('success_msg', 'The device has been added');
+				redirect('devicetypes/viewdevicetype');
 			}
+			else
+			{
+				$data['error_msg'] = 'Some problems occured, please try again.';
+			}
+			
+		
+			$this->load->view('devicetypes/adddevicetype');	
+	}
+	
+	public function editdevicetype()
+	{
+		$id = $this->uri->segment(3);
+		if (empty($id))
+		{
+			show_404();
 		}
 		
-		$data['devicetye'] = $deviceTypeData;
+		$data['typename'] = $this->devicetype->gettypebyid($id);
+		$this->form_validation->set_rules('typename', 'TypeName', 'required');
 		
+		if($this->form_validation->run() == true){
+		
+			$this->devicetype->setType();
+			$this->session->set_userdata('success_msg', 'The device has been added');
+			redirect('devicetypes/viewdevicetype');
+		}
+		
+		else
+		{
+			$data['error_msg'] = 'Some problems occured, please try again.';
+		}
+	
 		$this->load->view('devicetypes/adddevicetype', $data);
+	}
+	
+	public function delete()
+	{
+		$id = $this->uri->segment(3);
+	
+		if (empty($id))
+		{
+			show_404();
+		}
+	
+		$devicetype = $this->devicetype->gettypebyid($id);
+	
+		$this->devicetype->delete($id);
+		redirect( 'devicetypes/viewdevicetype');
 	}
 	
 }
