@@ -7,6 +7,10 @@ class DeviceTypes extends CI_Controller {
 		parent::__construct();
 		$this->load->library('form_validation');
 		$this->load->model('devicetype');
+		
+
+		$this->session->unset_userdata('slug');
+		
 	}
 	
 	public function viewdevicetype($slug = NULL) {

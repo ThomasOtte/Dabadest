@@ -58,7 +58,7 @@ class Users extends CI_Controller {
         $data = array();
         $userData = array();
         if($this->input->post('regisSubmit')){
-            $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+            $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]');
             $this->form_validation->set_rules('password', 'password', 'required');
             $this->form_validation->set_rules('conf_password', 'confirm password', 'required|matches[password]');
 
