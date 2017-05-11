@@ -90,8 +90,6 @@ class Devices extends CI_Controller {
 			show_404 ();
 		}
 		
-		$devicetype = $this->device->getDeviceById ( $id );
-		
 		$this->device->delete ( $id );
 		redirect ( base_url () . 'devices/viewdevice/' . $curslug );
 	}

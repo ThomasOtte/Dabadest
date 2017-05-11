@@ -14,11 +14,11 @@
     ?>
     <form action="" method="post">
         <div class="form-group has-feedback">
-            <input type="email" class="form-control" name="email" placeholder="Email" required="" value="">
+            <input type="email" class="form-control" name="email" placeholder="Email" value="">
             <?php echo form_error('email','<span class="help-block">','</span>'); ?>
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" name="password" placeholder="Password" required="">
+          <input type="password" class="form-control" name="password" placeholder="Password" >
           <?php echo form_error('password','<span class="help-block">','</span>'); ?>
         </div>
         <div class="form-group">

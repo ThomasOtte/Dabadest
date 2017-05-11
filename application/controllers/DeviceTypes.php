@@ -74,8 +74,6 @@ class DeviceTypes extends CI_Controller {
 			show_404 ();
 		}
 		
-		$devicetype = $this->devicetype->getTypeById ( $id );
-		
 		$this->devicetype->delete ( $id );
 		redirect ( 'devicetypes/viewDeviceType' );
 	}

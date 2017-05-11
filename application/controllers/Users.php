@@ -90,16 +90,4 @@ class Users extends CI_Controller {
         $this->session->sess_destroy();
         redirect('users/login/');
     }
-    
-    public function email_check($str){
-        $con['returnType'] = 'count';
-        $con['conditions'] = array('email'=>$str);
-        $checkEmail = $this->user->getRows($con);
-        if($checkEmail > 0){
-            $this->form_validation->set_message('email_check', 'The given email already exists.');
-            return FALSE;
-        } else {
-            return TRUE;
-        }
-    }
 }

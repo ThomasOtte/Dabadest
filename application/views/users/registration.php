@@ -7,15 +7,15 @@
     <h2>User Registration</h2>
     <form action="" method="post">
         <div class="form-group">
-            <input type="email" class="form-control" name="email" placeholder="Email" required="" value="<?php echo !empty($user['email'])?$user['email']:''; ?>">
+            <input type="email" class="form-control" name="email" placeholder="Email" value="<?php echo !empty($user['email'])?$user['email']:''; ?>">
           <?php echo form_error('email','<span class="help-block">','</span>'); ?>
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" name="password" placeholder="Password" required="">
+          <input type="password" class="form-control" name="password" placeholder="Password" >
           <?php echo form_error('password','<span class="help-block">','</span>'); ?>
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" name="conf_password" placeholder="Confirm password" required="">
+          <input type="password" class="form-control" name="conf_password" placeholder="Confirm password" >
           <?php echo form_error('conf_password','<span class="help-block">','</span>'); ?>
         </div>
         <div class="form-group">
