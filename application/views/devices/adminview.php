@@ -5,7 +5,7 @@
 <body>
 <h2>Devices</h2>
 <div>
-	<a href="<?php echo base_url(); ?>devices/adddevice">Add Device</a>
+	<a href="<?php echo base_url(); ?>Devices/addDevice">Add Device</a>
 </div>
 <div class="container">
 <table class="table">
@@ -24,8 +24,8 @@
 	<td><?php echo $row->location;?> </td> 
 	<td><?php echo $row->acqdate;?> </td> 
 	<td>
-	<a href="<?php echo base_url(); ?>devices/editdevice/<?php echo $row->id;?>">Edit Device</a> 
-	<a href="<?php echo base_url(); ?>devices/delete/<?php  echo $row->id; ?>" onClick="return confirm('Are you sure you want to delete?')">Delete</a> 
+	<a href="<?php echo base_url(); ?>Devices/editDevice/<?php echo $row->id;?>">Edit Device</a> 
+	<a href="<?php echo base_url(); ?>Devices/delete/<?php  echo $row->id; ?>" onClick="return confirm('Are you sure you want to delete?')">Delete</a> 
 	
 	</td>
 </tr>

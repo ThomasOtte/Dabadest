@@ -44,7 +44,7 @@ class Users extends CI_Controller {
                     $this->session->set_userdata('isUserLoggedIn',TRUE);
                     $this->session->set_userdata('userId',$checkLogin['user_id']);
                     $this->session->set_userdata('userState', $checkLogin['state']);
-                    redirect('devicetypes/viewdevicetype');
+                    redirect('DeviceTypes/viewDeviceType');
                 }else{
                     $data['error_msg'] = 'Wrong email or password, please try again.';
                 }

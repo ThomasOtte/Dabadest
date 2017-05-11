@@ -3,25 +3,25 @@ class DeviceTypes extends CI_Controller {
 	function __construct() {
 		parent::__construct ();
 		$this->load->library ( 'form_validation' );
-		$this->load->model ( 'devicetype' );
+		$this->load->model ( 'DeviceType' );
 		
 		$this->session->unset_userdata ( 'slug' );
 	}
 	public function viewDeviceType($slug = NULL) {
 		$data = array ();
 		if ($this->session->userdata ( 'userState' ) == 1) {
-			$data ['result'] = $this->devicetype->getRows ();
+			$data ['result'] = $this->DeviceType->getRows ();
 			
 			$this->load->view ( 'devicetypes/managementview', $data );
 		} else if ($this->session->userdata ( 'userState' ) == 2) {
-			$data ['result'] = $this->devicetype->getRows ();
+			$data ['result'] = $this->DeviceType->getRows ();
 			
 			$this->load->view ( 'devicetypes/adminview', $data );
 		} else {
 			redirect ( 'users/login' );
 		}
 	}
-	public function adddevicetype() {
+	public function addDeviceType() {
 		if ($this->session->userdata ( 'userState' ) != 2) {
 			redirect ( 'users/login' );
 		}
@@ -29,9 +29,9 @@ class DeviceTypes extends CI_Controller {
 		
 		if ($this->form_validation->run () == true) {
 			
-			$this->devicetype->setType ();
+			$this->DeviceType->setType ();
 			$this->session->set_userdata ( 'success_msg', 'The device has been added' );
-			redirect ( 'devicetypes/viewdevicetype' );
+			redirect ( 'DeviceTypes/viewDeviceType' );
 		} else {
 			$data ['error_msg'] = 'Some problems occured, please try again.';
 		}
@@ -47,14 +47,14 @@ class DeviceTypes extends CI_Controller {
 			show_404 ();
 		}
 		
-		$data ['typename'] = $this->devicetype->getTypeById ( $id );
+		$data ['typename'] = $this->DeviceType->getTypeById ( $id );
 		$this->form_validation->set_rules ( 'typename', 'TypeName', 'required' );
 		
 		if ($this->form_validation->run () == true) {
 			
-			$this->devicetype->setType ();
+			$this->DeviceType->setType ();
 			$this->session->set_userdata ( 'success_msg', 'The device has been added' );
-			redirect ( 'devicetypes/viewDeviceType' );
+			redirect ( 'DeviceTypes/viewDeviceType' );
 		} 
 
 		else {
@@ -74,7 +74,7 @@ class DeviceTypes extends CI_Controller {
 			show_404 ();
 		}
 		
-		$this->devicetype->delete ( $id );
-		redirect ( 'devicetypes/viewDeviceType' );
+		$this->DeviceType->delete ( $id );
+		redirect ( 'DeviceTypes/viewDeviceType' );
 	}
 }

@@ -3,7 +3,7 @@ class Devices extends CI_Controller {
 	function __construct() {
 		parent::__construct ();
 		$this->load->library ( 'form_validation' );
-		$this->load->model ( 'device' );
+		$this->load->model ( 'Device' );
 	}
 	public function viewDevice() {
 		if ($this->session->userdata ( 'slug' ) == 0) {
@@ -13,10 +13,10 @@ class Devices extends CI_Controller {
 		
 		$data = array ();
 		if ($this->session->userdata ( 'userState' ) == 1) {
-			$data ['result'] = $this->device->getRows ();
+			$data ['result'] = $this->Device->getRows ();
 			$this->load->view ( 'devices/managementview', $data );
 		} else if ($this->session->userdata ( 'userState' ) == 2) {
-			$data ['result'] = $this->device->getRows ();
+			$data ['result'] = $this->Device->getRows ();
 			
 			$this->load->view ( 'devices/adminview', $data );
 		} else {
@@ -36,7 +36,7 @@ class Devices extends CI_Controller {
 		
 		if ($this->form_validation->run () == true) {
 			
-			$this->device->setDevice ();
+			$this->Device->setDevice ();
 			$this->session->set_userdata ( 'success_msg', 'The device has been added' );
 			redirect ( base_url () . 'devices/viewdevice/' . $curslug );
 		} else {
@@ -58,7 +58,7 @@ class Devices extends CI_Controller {
 			show_404 ();
 		}
 		
-		$data ['devicename'] = $this->device->getDeviceById ( $id );
+		$data ['devicename'] = $this->Device->getDeviceById ( $id );
 		$this->form_validation->set_rules ( 'brand', 'Brand', 'required' );
 		$this->form_validation->set_rules ( 'devicename', 'DeviceName', 'required' );
 		$this->form_validation->set_rules ( 'location', 'Location', 'required' );
@@ -66,9 +66,9 @@ class Devices extends CI_Controller {
 		
 		if ($this->form_validation->run () == true) {
 			
-			$this->device->setDevice ();
+			$this->Device->setDevice ();
 			$this->session->set_userdata ( 'success_msg', 'The device has been added' );
-			redirect ( base_url () . 'devices/viewdevice/' . $curslug );
+			redirect ( base_url () . 'Devices/viewDevice/' . $curslug );
 		} 
 
 		else {
@@ -90,7 +90,7 @@ class Devices extends CI_Controller {
 			show_404 ();
 		}
 		
-		$this->device->delete ( $id );
-		redirect ( base_url () . 'devices/viewdevice/' . $curslug );
+		$this->Device->delete ( $id );
+		redirect ( base_url () . 'Devices/viewDevice/' . $curslug );
 	}
 }
