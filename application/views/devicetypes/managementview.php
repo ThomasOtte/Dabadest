@@ -3,6 +3,7 @@
 <head>
 </head>
 <body>
+<h2>Devicetypes</h2>
 <div class="container">
 <?php foreach($result as $row):?>
 <p>

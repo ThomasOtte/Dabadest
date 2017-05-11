@@ -3,6 +3,7 @@
 <head>
 </head>
 <body>
+<h2>Devices</h2>
 <div>
 	<a href="<?php echo base_url(); ?>devices/adddevice">Add Device</a>
 </div>

@@ -3,6 +3,7 @@
 <head>
 </head>
 <body>
+<h2>Devicetypes</h2>
 <div>
 	<a href="<?php echo base_url(); ?>devicetypes/adddevicetype">Add Device Type</a>
 </div>

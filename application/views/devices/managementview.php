@@ -3,6 +3,7 @@
 <head>
 </head>
 <body>
+<h2>Devices</h2>
 <div class="container">
 <table class="table">
  <tr>
