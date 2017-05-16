@@ -44,7 +44,7 @@ class Users extends CI_Controller {
                     $this->session->set_userdata('isUserLoggedIn',TRUE);
                     $this->session->set_userdata('userId',$checkLogin['user_id']);
                     $this->session->set_userdata('userState', $checkLogin['state']);
-                    redirect('DeviceTypes/viewDeviceType');
+                    redirect('Users/home');
                 }else{
                     $data['error_msg'] = 'Wrong email or password, please try again.';
                 }
@@ -82,7 +82,10 @@ class Users extends CI_Controller {
 
         $this->load->view('users/registration', $data);
     }
-    
+    public function home(){
+    	
+    	$this->load->view('home');
+    }
     public function logout(){
         $this->session->unset_userdata('isUserLoggedIn');
         $this->session->unset_userdata('userId');

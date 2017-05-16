@@ -20,6 +20,7 @@
 	<td><?php echo $row->devicename;?> </td> 
 	<td><?php echo $row->location;?> </td> 
 	<td><?php echo $row->acqdate;?> </td> 
+	<td> <a href="<?php echo base_url(); ?>Malfunctions/addMalfunction/<?php echo $row->id;?>">Report Malfunction</a> </td>
 </tr>
 <?php endforeach;?>
 

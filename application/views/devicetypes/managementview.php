@@ -7,7 +7,7 @@
 <div class="container">
 <?php foreach($result as $row):?>
 <p>
-	<a href="<?php echo base_url(); ?>Devices/viewDevice/<?php echo $row->id; ?>"><?php echo $row->typename;?></a>      
+	<a href="<?php echo base_url(); ?>Devices/viewDevice/<?php echo $row->slug; ?>"><?php echo $row->typename;?></a>      
 </p>
 
 <?php endforeach;?>

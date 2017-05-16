@@ -25,7 +25,8 @@
 	<td><?php echo $row->acqdate;?> </td> 
 	<td>
 	<a href="<?php echo base_url(); ?>Devices/editDevice/<?php echo $row->id;?>">Edit Device</a> 
-	<a href="<?php echo base_url(); ?>Devices/delete/<?php  echo $row->id; ?>" onClick="return confirm('Are you sure you want to delete?')">Delete</a> 
+	<a href="<?php echo base_url(); ?>Devices/delete/<?php  echo $row->id; ?>" onClick="return confirm('Are you sure you want to delete?')">Delete</a>
+	<a href="<?php echo base_url(); ?>Malfunctions/addMalfunction/<?php echo $row->id;?>">Report Malfunction</a>  
 	
 	</td>
 </tr>
