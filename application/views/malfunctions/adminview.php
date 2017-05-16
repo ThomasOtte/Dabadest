@@ -16,7 +16,6 @@
 	 <th>Priority</th>
      <th>&nbsp;</th>
  </tr>
-
 <?php foreach($result as $row):?>
 <tr>
 	<td><?php echo $row->devicebrand;?> </td> 
@@ -28,7 +27,8 @@
 	<td><?php echo $row->priority;?> </td> 
 	<td>
 	<a href="<?php echo base_url(); ?>Malfunctions/editMalfunction/<?php echo $row->id;?>">Edit Malfunction</a> 
-	<a href="<?php echo base_url(); ?>Malfunctions/delete/<?php  echo $row->id; ?>" onClick="return confirm('Are you sure you want to delete?')">Delete</a> 
+	<a href="<?php echo base_url(); ?>Malfunctions/delete/<?php  echo $row->id; ?>" onClick="return confirm('Are you sure you want to delete?')">Delete</a>
+	<a href="<?php echo base_url(); ?>Reports/viewReport/<?php echo $row->id; ?>">View Report</a>   
 	
 	</td>
 </tr>

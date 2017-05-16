@@ -7,13 +7,8 @@ class Malfunctions extends CI_Controller {
 	}
 	public function viewMalfunction() {
 		$data = array ();
-		if ($this->session->userdata ( 'userState' ) == 1) {
+		if ($this->session->userdata ( 'userState' ) == 1 || $this->session->userdata ( 'userState' ) == 2) {
 			$data ['result'] = $this->Malfunction->getRows ();
-			
-			$this->load->view ( 'malfunctions/managementview', $data );
-		} else if ($this->session->userdata ( 'userState' ) == 2) {
-			$data ['result'] = $this->Malfunction->getRows ();
-			
 			$this->load->view ( 'malfunctions/adminview', $data );
 		} else {
 			redirect ( 'users/login' );
@@ -67,14 +62,17 @@ class Malfunctions extends CI_Controller {
 		else {
 			$data ['error_msg'] = 'Some problems occured, please try again.';
 		}
-		if ($this->session->userdata ( 'userState' ) == 1)
+		if ($this->session->userdata ( 'userState' ) == 1 || $this->session->userdata ( 'userState' ) == 2)
 		{
-			$this->load->view ( 'malfunctions/managementadd', $data );
+			$malfid = $this->uri->segment ( 3 );
+			$malfunction = $this->db->get_where ( 'malfunction', array (
+					'id' => $malfid
+			) );
+			$query = $malfunction->result_array();
+			$data['result']=$query['0'];
+			$this->load->view ( 'malfunctions/adminadd', $data );
 		}
-		if ($this->session->userdata ( 'userState' ) == 2)
-		{
-		$this->load->view ( 'malfunctions/adminadd', $data );
-		}
+
 	}
 	public function delete() {
 		if ($this->session->userdata ( 'userState' ) != 2) {

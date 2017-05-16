@@ -54,6 +54,13 @@ class Devices extends CI_Controller {
 		$id = $query ['0']->id;
 		$curslug = $this->session->userdata ( 'slug' );
 		
+		$deviceid = $this->uri->segment ( 3 );
+		$device = $this->db->get_where ( 'device', array (
+				'id' => $deviceid
+		) );
+		$query = $device->result_array();
+		$data['result']=$query['0'];
+		
 		if (empty ( $id )) {
 			show_404 ();
 		}

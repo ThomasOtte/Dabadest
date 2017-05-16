@@ -42,6 +42,14 @@ class DeviceTypes extends CI_Controller {
 		if ($this->session->userdata ( 'userState' ) != 2) {
 			redirect ( 'users/login' );
 		}
+		
+		$typeid = $this->uri->segment ( 3 );
+		$type = $this->db->get_where ( 'devicetype', array (
+				'id' => $typeid
+		) );
+		$query = $type->result_array();
+		$data['result']=$query['0'];
+		
 		$id = $this->uri->segment ( 3 );
 		if (empty ( $id )) {
 			show_404 ();
