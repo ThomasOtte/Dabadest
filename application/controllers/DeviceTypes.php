@@ -12,10 +12,12 @@ class DeviceTypes extends CI_Controller {
 		if ($this->session->userdata ( 'userState' ) == 1) {
 			$data ['result'] = $this->DeviceType->getRows ();
 			
+			$this->load->view ('header');
 			$this->load->view ( 'devicetypes/managementview', $data );
 		} else if ($this->session->userdata ( 'userState' ) == 2) {
 			$data ['result'] = $this->DeviceType->getRows ();
 			
+			$this->load->view ('header');
 			$this->load->view ( 'devicetypes/adminview', $data );
 		} else {
 			redirect ( 'users/login' );
@@ -36,6 +38,7 @@ class DeviceTypes extends CI_Controller {
 			$data ['error_msg'] = 'Some problems occured, please try again.';
 		}
 		
+		$this->load->view ('header');
 		$this->load->view ( 'devicetypes/adddevicetype' );
 	}
 	public function editDeviceType() {
@@ -69,6 +72,7 @@ class DeviceTypes extends CI_Controller {
 			$data ['error_msg'] = 'Some problems occured, please try again.';
 		}
 		
+		$this->load->view ('header');
 		$this->load->view ( 'devicetypes/adddevicetype', $data );
 	}
 	public function delete() {

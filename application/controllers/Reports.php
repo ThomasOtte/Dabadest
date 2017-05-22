@@ -19,6 +19,7 @@ class Reports extends CI_Controller {
 				$this->session->set_userdata ('noreport', true);
 				redirect ( 'Reports/addReport' );
 			}
+			$this->load->view ('header');
 			$this->load->view ( 'reports/view', $data );
 		} else {
 			redirect ( 'users/login' );
@@ -30,7 +31,6 @@ class Reports extends CI_Controller {
 		}
 		if ($this->session->userdata ('noreport') == true)
 		{
-			echo "No Report Found, please add report";
 			$this->session->set_userdata ('noreport') == false ;
 		}
 		$curmalfid = $this->session->userdata ( 'malfid' );
@@ -48,6 +48,7 @@ class Reports extends CI_Controller {
 			$data ['error_msg'] = 'Some problems occured, please try again.';
 		}
 		
+		$this->load->view ('header');
 		$this->load->view ( 'reports/addreport' );
 	}
 	public function editReport() {
@@ -86,6 +87,7 @@ class Reports extends CI_Controller {
 			$data ['error_msg'] = 'Some problems occured, please try again.';
 		}
 		
+		$this->load->view ('header');
 		$this->load->view ( 'reports/addreport', $data );
 	}
 	public function delete() {

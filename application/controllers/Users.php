@@ -14,6 +14,7 @@ class Users extends CI_Controller {
         if($this->session->userdata('isUserLoggedIn')){
             $data['user'] = $this->user->getRows(array('user_id'=>$this->session->userdata('userId')));
 
+            $this->load->view ('header');
             $this->load->view('users/account', $data);
         }else{
             redirect('users/login');
@@ -51,6 +52,7 @@ class Users extends CI_Controller {
             }
         }
         
+        $this->load->view ('header');
         $this->load->view('users/login', $data);
     }
     
@@ -80,10 +82,12 @@ class Users extends CI_Controller {
         }
         $data['user'] = $userData;
 
+        $this->load->view ('header');
         $this->load->view('users/registration', $data);
     }
     public function home(){
     	
+    	$this->load->view ('header');
     	$this->load->view('home');
     }
     public function logout(){

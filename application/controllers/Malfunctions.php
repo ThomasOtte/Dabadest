@@ -9,7 +9,8 @@ class Malfunctions extends CI_Controller {
 		$data = array ();
 		if ($this->session->userdata ( 'userState' ) == 1 || $this->session->userdata ( 'userState' ) == 2) {
 			$data ['result'] = $this->Malfunction->getRows ();
-			$this->load->view ( 'malfunctions/adminview', $data );
+			$this->load->view ('header');
+			$this->load->view ( 'malfunctions/view', $data );
 		} else {
 			redirect ( 'users/login' );
 		}
@@ -33,10 +34,12 @@ class Malfunctions extends CI_Controller {
 		
 	    if ($this->session->userdata ( 'userState' ) == 1)
 		{
+			$this->load->view ('header');
 			$this->load->view ( 'malfunctions/managementadd', $data );
 		}
 		if ($this->session->userdata ( 'userState' ) == 2)
 		{
+		$this->load->view ('header');
 		$this->load->view ( 'malfunctions/adminadd', $data );
 		}
 	}
@@ -71,7 +74,17 @@ class Malfunctions extends CI_Controller {
 			) );
 			$query = $malfunction->result_array();
 			$data['result']=$query['0'];
+			
+			if ($this->session->userdata ( 'userState' ) == 1)
+			{
+				$this->load->view ('header');
+				$this->load->view ( 'malfunctions/managementadd', $data );
+			}
+			else
+			{
+			$this->load->view ('header');
 			$this->load->view ( 'malfunctions/adminadd', $data );
+			}
 		}
 
 	}

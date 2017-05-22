@@ -14,10 +14,12 @@ class Devices extends CI_Controller {
 		$data = array ();
 		if ($this->session->userdata ( 'userState' ) == 1) {
 			$data ['result'] = $this->Device->getRows ();
+			$this->load->view ('header');
 			$this->load->view ( 'devices/managementview', $data );
 		} else if ($this->session->userdata ( 'userState' ) == 2) {
 			$data ['result'] = $this->Device->getRows ();
 			
+			$this->load->view ('header');
 			$this->load->view ( 'devices/adminview', $data );
 		} else {
 			redirect ( 'users/login' );
@@ -43,6 +45,7 @@ class Devices extends CI_Controller {
 			$data ['error_msg'] = 'Some problems occured, please try again.';
 		}
 		
+		$this->load->view ('header');
 		$this->load->view ( 'devices/adddevice' );
 	}
 	public function editDevice() {
@@ -82,6 +85,7 @@ class Devices extends CI_Controller {
 			$data ['error_msg'] = 'Some problems occured, please try again.';
 		}
 		
+		$this->load->view ('header');
 		$this->load->view ( 'devices/adddevice', $data );
 	}
 	public function delete() {

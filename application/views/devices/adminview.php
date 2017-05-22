@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">  
 <head>
+
+<title>Devices</title>
+
 </head>
 <body>
-<h2>Devices</h2>
-<div>
-	<a href="<?php echo base_url(); ?>Devices/addDevice">Add Device</a>
+<div class="page-header">
+<h1 class="text-center">Devices</h1>
 </div>
+
 <div class="container">
+<p>
+<a href="<?php echo base_url(); ?>Devices/addDevice" class="btn btn-lg btn-primary" >Add Device</a>
+</p>
 <table class="table">
  <tr>
      <th>Brand</th>
@@ -24,9 +30,9 @@
 	<td><?php echo $row->location;?> </td> 
 	<td><?php echo $row->acqdate;?> </td> 
 	<td>
-	<a href="<?php echo base_url(); ?>Devices/editDevice/<?php echo $row->id;?>">Edit Device</a> 
-	<a href="<?php echo base_url(); ?>Devices/delete/<?php  echo $row->id; ?>" onClick="return confirm('Are you sure you want to delete?')">Delete</a>
-	<a href="<?php echo base_url(); ?>Malfunctions/addMalfunction/<?php echo $row->id;?>">Report Malfunction</a>  
+	<a href="<?php echo base_url(); ?>Devices/editDevice/<?php echo $row->id;?>" class="btn btn-sm btn-warning">Edit Device</a> 
+	<a href="<?php echo base_url(); ?>Devices/delete/<?php  echo $row->id; ?>" class="btn btn-sm btn-danger" onClick="return confirm('Are you sure you want to delete?')">Delete</a>
+	<a href="<?php echo base_url(); ?>Malfunctions/addMalfunction/<?php echo $row->id;?>" class="btn btn-sm btn-info">Report Malfunction</a>  
 	
 	</td>
 </tr>

@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">  
 <head>
+
+<title>Malfunctions</title>
+
 </head>
 <body>
-<h2>Malfunctions</h2>
+<div class="page-header">
+<h1 class="text-center">Malfunctions</h1>
+</div>
 <div class="container">
 <table class="table">
  <tr>
@@ -16,7 +21,6 @@
 	 <th>Priority</th>
      <th>&nbsp;</th>
  </tr>
-
 <?php foreach($result as $row):?>
 <tr>
 	<td><?php echo $row->devicebrand;?> </td> 
@@ -27,6 +31,10 @@
 	<td><?php echo $row->fixed;?> </td> 
 	<td><?php echo $row->priority;?> </td> 
 	<td>
+	<a href="<?php echo base_url(); ?>Malfunctions/editMalfunction/<?php echo $row->id;?>" class="btn btn-sm btn-warning"> Edit Malfunction </a>
+	<a href="<?php echo base_url(); ?>Malfunctions/delete/<?php  echo $row->id; ?>" class="btn btn-sm btn-danger" onClick="return confirm('Are you sure you want to delete?')">Delete</a>
+	<a href="<?php echo base_url(); ?>Reports/viewReport/<?php echo $row->id; ?>" class="btn btn-sm btn-info">View Report</a>   
+	
 	</td>
 </tr>
 <?php endforeach;?>
