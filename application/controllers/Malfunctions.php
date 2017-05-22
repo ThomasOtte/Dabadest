@@ -14,6 +14,7 @@ class Malfunctions extends CI_Controller {
 			redirect ( 'users/login' );
 		}
 	}
+
 	public function addMalfunction() {
 		if ($this->session->userdata ( 'userState' ) != 2 && $this->session->userdata ( 'userState' ) != 1) {
 			redirect ( 'users/login' );

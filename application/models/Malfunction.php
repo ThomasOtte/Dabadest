@@ -4,7 +4,10 @@ class Malfunction extends CI_Model {
 		$this->load->database ();
 	}
 	function getRows() {
-		$result = $this->db->get ( 'malfunction' );
+		$this->db->select('*');
+		$this->db->from('malfunction');
+		$this->db->order_by('id', 'desc');
+		$result = $this->db->get ();
 		return $result->result ();
 	}
 	function getMalfunctionById($id) {
