@@ -19,6 +19,7 @@
       <li><a href="<?php echo base_url(); ?>Malfunctions/viewMalfunction/">Malfunctions</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
+      <li><a href="<?php echo base_url(); ?>Users/Account/"><span class="glyphicon glyphicon-user"></span> Account</a></li>
       <li><a href="<?php echo base_url(); ?>Users/Logout/"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
     </ul>
   </div>

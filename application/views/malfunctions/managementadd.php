@@ -19,8 +19,8 @@
         </div>
         <div class="form-group">
         	<label>
-        	<input type="hidden" value="no" name="fixed">
-            <input type="checkbox" name="fixed" value="yes" placeholder="Fixed?" value="<?php echo !empty($result['fixed'])?$result['fixed']:'';?>">
+        	<input type="hidden" value="NO" name="fixed">
+            <input type="checkbox" name="fixed" value="YES" placeholder="Fixed?" value="<?php if ($result['fixed'] == "YES"){echo "checked=checked";}?>">
             Fixed
             </label>
         </div>
