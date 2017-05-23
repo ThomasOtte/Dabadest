@@ -7,6 +7,7 @@ class Malfunctions extends CI_Controller {
 	}
 	public function viewMalfunction() {
 		$data = array ();
+		$this->session->unset_userdata('malfid');
 		if ($this->session->userdata ( 'userState' ) == 1 || $this->session->userdata ( 'userState' ) == 2) {
 			$data ['result'] = $this->Malfunction->getRows ();
 			$this->load->view ('header');

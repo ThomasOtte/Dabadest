@@ -22,7 +22,7 @@
      <th>&nbsp;</th>
  </tr>
 <?php foreach($result as $row):?>
-<tr>
+<tr <?php if ($row->fixed == "yes"){?> class="bg-success" <?php }?>>
 	<td><?php echo $row->devicebrand;?> </td> 
 	<td><?php echo $row->devicename;?> </td> 
 	<td><?php echo $row->devicelocation;?> </td> 

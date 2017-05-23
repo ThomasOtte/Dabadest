@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">  
 <head>
+
+<title>Malfunction Report</title>
+
 </head>
 <body>
-<h2>Malfunction Report</h2>
-<div>
-<a href="<?php echo base_url(); ?>Reports/editReport/<?php echo $result ['0']->id;?>">Edit Report</a>
-<a href="<?php echo base_url(); ?>Reports/delete/<?php  echo $result ['0']->id; ?>" onClick="return confirm('Are you sure you want to delete?')">Delete</a> 
-</div>
+
 <div class="container">
-<p> Malfunction Description: </p>
+<h1>Malfunction Report</h1>
+<a class="btn btn-md btn-info" href="<?php echo base_url(); ?>Reports/editReport/<?php echo $result ['0']->id;?>">Edit Report</a>
+<a class="btn btn-md btn-warning" href="<?php echo base_url(); ?>Reports/delete/<?php  echo $result ['0']->id; ?>" onClick="return confirm('Are you sure you want to delete?')">Delete</a>
+<br>
+<label> Malfunction Description: </label>
 <p> <?php echo $result ['0']->description ?>
 </div>
 <div class="container">
-<p> Malfunction Cause: </p>
+<label> Malfunction Cause: </label>
 <p> <?php echo $result ['0']->cause ?>
 </div>
 <div class="container">
-<p> Malfunction Solution: </p>
+<label> Malfunction Solution: </label>
 <p> <?php echo $result ['0']->solution ?>
 </div>
 <div class="container">
-<p> Date Fixed: </p>
+<label> Date Fixed: </label>
 <p> <?php echo $result ['0']->date ?>
 </div>
 <div class="container">
-<p> Time Fixed: </p>
+<label> Time Fixed: </label>
 <p> <?php echo $result ['0']->time ?>
 </div>
 </body>

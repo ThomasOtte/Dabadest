@@ -14,15 +14,15 @@
     ?>
     <form action="" method="post">
         <div class="form-group has-feedback">
+        	<label>E-Mail:</label>
             <input type="email" class="form-control" name="email" placeholder="Email" value="">
-            <?php echo form_error('email','<span class="help-block">','</span>'); ?>
         </div>
         <div class="form-group">
+          <label>Password:</label>
           <input type="password" class="form-control" name="password" placeholder="Password" >
-          <?php echo form_error('password','<span class="help-block">','</span>'); ?>
         </div>
         <div class="form-group">
-            <input type="submit" name="loginSubmit" class="btn-primary" value="Submit"/>
+            <input type="submit" name="loginSubmit" class="btn btn-md btn-info" value="Submit"/>
         </div>
     </form>
     <p class="footInfo">Don't have an account? <a href="<?php echo base_url(); ?>users/registration">Register here</a></p>

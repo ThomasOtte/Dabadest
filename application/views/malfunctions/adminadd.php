@@ -20,7 +20,7 @@
         <div class="form-group">
         	<label>
             <input type="hidden" value="no" name="fixed">
-            <input type="checkbox" name="fixed" value="yes" placeholder="Fixed?" value="<?php echo !empty($result['fixed'])?$result['fixed']:'';?>">
+            <input type="checkbox" name="fixed" value="yes" placeholder="Fixed?" <?php if ($result['fixed'] == "yes"){echo "checked=checked";}?>>
             Fixed
             </label>
         </div>

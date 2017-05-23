@@ -86,9 +86,15 @@ class Users extends CI_Controller {
         $this->load->view('users/registration', $data);
     }
     public function home(){
-    	
-    	$this->load->view ('header');
-    	$this->load->view('home');
+    	if ($this->session->userdata ( 'userState' ) == 1 || $this->session->userdata ( 'userState' ) == 2) 
+    	{
+    		$this->load->view ('header');
+    		$this->load->view('home');
+    	}
+    	else 
+    	{
+    		redirect ( 'users/login' );
+    	}
     }
     public function logout(){
         $this->session->unset_userdata('isUserLoggedIn');
