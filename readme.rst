@@ -13,7 +13,7 @@ Installation
 ************
 1. Load the dabadest.sql that resides inside the Database folder into your database
 2. Enter your database user information into application/config/database.php.dist
-3. Change the filename from "database.php.dist" to "local.php"
+3. Change the filename from "database.php.dist" to "database.php"
 
 testmanagementaccount: username:a@b.com password: Apple1
 testadminaccount: username:f@e.com password: Apple1
