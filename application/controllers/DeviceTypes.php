@@ -32,7 +32,6 @@ class DeviceTypes extends CI_Controller {
 		if ($this->form_validation->run () == true) {
 			
 			$this->DeviceType->setType ();
-			$this->session->set_userdata ( 'success_msg', 'The device has been added' );
 			redirect ( 'DeviceTypes/viewDeviceType' );
 		} else {
 			$data ['error_msg'] = 'Some problems occured, please try again.';
@@ -64,7 +63,6 @@ class DeviceTypes extends CI_Controller {
 		if ($this->form_validation->run () == true) {
 			
 			$this->DeviceType->setType ();
-			$this->session->set_userdata ( 'success_msg', 'The device has been added' );
 			redirect ( 'DeviceTypes/viewDeviceType' );
 		} 
 

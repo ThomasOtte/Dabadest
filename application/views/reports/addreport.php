@@ -10,15 +10,15 @@
     <form action="" method="post">
     	<h1>Add/Edit Report</h1>
         <div class="form-group">
-        	<label>Descripition:</label>
-            <input type="text" size="25" class="form-control" name="description" placeholder="Malfunction Description" value="<?php echo !empty($result['description'])?$result['description']:''; ?>">
+        	<label>Description (255 characters max):*</label>
+            <textarea class="form-control" rows="6" name="description" placeholder="Malfunction Description" ><?php echo !empty($result['description'])?$result['description']:''; ?></textarea>
         </div>
         <div class="form-group">
-        	<label>Malfunction Cause:</label>
+        	<label>Malfunction Cause (255 characters max):</label>
             <textarea class="form-control" rows="6" name="cause" placeholder="Malfunction Cause" ><?php echo !empty($result['cause'])?$result['cause']:''; ?></textarea>
         </div>
         <div class="form-group">
-        	<label>Malfunction Solution:</label>
+        	<label>Malfunction Solution (255 characters max):</label>
             <textarea class="form-control" rows="6" name="solution" placeholder="Malfunction Solution" ><?php echo !empty($result['solution'])?$result['solution']:''; ?></textarea>
         </div>
         <div class="form-group">
@@ -30,6 +30,7 @@
             <input type="text" class="form-control" name="time" placeholder="Time Fixed" value="<?php echo !empty($result['time'])?$result['time']:''; ?>">
         </div>
         <div class="form-group">
+        	<p>*: Required Field </p>
             <input type="submit" name="submit" class="btn btn-md btn-info" value="Submit"/>
         </div>
     </form>              

@@ -27,7 +27,6 @@ class Malfunctions extends CI_Controller {
 		if ($this->form_validation->run () == true) {
 			
 			$this->Malfunction->addMalfunction ();
-			$this->session->set_userdata ( 'success_msg', 'The device has been added' );
 			redirect ( 'Malfunctions/viewMalfunction' );
 		} else {
 			$data ['error_msg'] = 'Some problems occured, please try again.';
@@ -60,7 +59,6 @@ class Malfunctions extends CI_Controller {
 		if ($this->form_validation->run () == true) {
 			
 			$this->Malfunction->editMalfunction ();
-			$this->session->set_userdata ( 'success_msg', 'The malfunction has been added' );
 			redirect ( 'Malfunctions/viewMalfunction' );
 		} 
 

@@ -26,6 +26,11 @@
         </div>
     </form>
     <p class="footInfo">Don't have an account? <a href="<?php echo base_url(); ?>users/registration">Register here</a></p>
+    
+    <div>
+    Testadmin: f@e.com	password: Apple1 <br>
+    Testuser: a@b.com	password: Apple1
+    </div>
 </div>
 </body>
 </html>

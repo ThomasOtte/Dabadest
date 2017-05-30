@@ -39,7 +39,6 @@ class Devices extends CI_Controller {
 		if ($this->form_validation->run () == true) {
 			
 			$this->Device->setDevice ();
-			$this->session->set_userdata ( 'success_msg', 'The device has been added' );
 			redirect ( base_url () . 'devices/viewdevice/' . $curslug );
 		} else {
 			$data ['error_msg'] = 'Some problems occured, please try again.';
@@ -77,7 +76,6 @@ class Devices extends CI_Controller {
 		if ($this->form_validation->run () == true) {
 			
 			$this->Device->setDevice ();
-			$this->session->set_userdata ( 'success_msg', 'The device has been added' );
 			redirect ( base_url () . 'Devices/viewDevice/' . $curslug );
 		} 
 

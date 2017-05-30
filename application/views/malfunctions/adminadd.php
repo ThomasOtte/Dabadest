@@ -10,17 +10,17 @@
     <h2>Add/Edit Malfunction</h2>
     <form action="" method="post">
         <div class="form-group">
-        	<label>Malfunction Date:</label>
+        	<label>Malfunction Date:*</label>
             <input type="text" class="form-control" name="date" placeholder="Malfunction Date" value="<?php echo !empty($result['date'])?$result['date']:''; ?>">
         </div>
         <div class="form-group">
-        	<label>Malfunction Time:</label>
+        	<label>Malfunction Time:*</label>
             <input type="text" class="form-control" name="time" placeholder="Malfunction Time" value="<?php echo !empty($result['time'])?$result['time']:''; ?>">
         </div>
         <div class="form-group">
         	<label>
             <input type="hidden" value="NO" name="fixed">
-            <input type="checkbox" name="fixed" value="YES" placeholder="Fixed?" <?php if ($result['fixed'] == "YES"){echo "checked=checked";}?>>
+            <input type="checkbox" name="fixed" value="YES" placeholder="Fixed?" <?php if (!empty($result)){if ($result['fixed'] == "YES"){echo "checked=checked";}}?>>
             Fixed
             </label>
         </div>
@@ -30,6 +30,7 @@
             <input type="text" class="form-control" name="priority" placeholder="Priority" value="<?php echo !empty($result['priority'])?$result['priority']:''; ?>">
         </div>
         <div class="form-group">
+        	<p>*: Required Field </p>
             <input type="submit" name="submit" class="btn btn-info" value="Submit"/>
         </div>
     </form>              

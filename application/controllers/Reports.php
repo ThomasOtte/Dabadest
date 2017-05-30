@@ -26,7 +26,7 @@ class Reports extends CI_Controller {
 		}
 	}
 	public function addReport() {
-		if ($this->session->userdata ( 'userState' ) != 2) {
+		if ($this->session->userdata ( 'userState' ) !=1 && $this->session->userdata ( 'userState' ) != 2) {
 			redirect ( 'users/login' );
 		}
 		if ($this->session->userdata ('noreport') == true)
@@ -36,13 +36,11 @@ class Reports extends CI_Controller {
 		$curmalfid = $this->session->userdata ( 'malfid' );
 		
 		$this->form_validation->set_rules ( 'description', 'Description', 'required' );
-		$this->form_validation->set_rules ( 'date', 'Date', 'required' );
-		$this->form_validation->set_rules ( 'time', 'Time', 'required' );
+
 		
 		if ($this->form_validation->run () == true) {
 			
 			$this->Report->setReport ();
-			$this->session->set_userdata ( 'success_msg', 'The report has been added' );
 			redirect ( base_url () . 'reports/viewreport/' . $curslug );
 		} else {
 			$data ['error_msg'] = 'Some problems occured, please try again.';
@@ -52,7 +50,7 @@ class Reports extends CI_Controller {
 		$this->load->view ( 'reports/addreport' );
 	}
 	public function editReport() {
-		if ($this->session->userdata ( 'userState' ) != 2) {
+		if ($this->session->userdata ( 'userState' ) != 1 && $this->session->userdata ( 'userState' ) != 2) {
 			redirect ( 'users/login' );
 		}
 		$malfunction = $this->db->get ( 'malfunction' );
@@ -73,13 +71,10 @@ class Reports extends CI_Controller {
 		
 		$data ['reportname'] = $this->Report->getReportById ( $id );
 		$this->form_validation->set_rules ( 'description', 'Description', 'required' );
-		$this->form_validation->set_rules ( 'date', 'Date', 'required' );
-		$this->form_validation->set_rules ( 'time', 'Time', 'required' );
 		
 		if ($this->form_validation->run () == true) {
 			
 			$this->Report->setReport ();
-			$this->session->set_userdata ( 'success_msg', 'The report has been added' );
 			redirect ( base_url () . 'Reports/viewReport/' . $curmalfid );
 		} 
 
@@ -91,7 +86,7 @@ class Reports extends CI_Controller {
 		$this->load->view ( 'reports/addreport', $data );
 	}
 	public function delete() {
-		if ($this->session->userdata ( 'userState' ) != 2) {
+		if ($this->session->userdata ( 'userState' ) != 1 && $this->session->userdata ( 'userState' ) != 2) {
 			redirect ( 'users/login' );
 		}
 		
