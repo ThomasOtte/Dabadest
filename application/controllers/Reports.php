@@ -36,7 +36,7 @@ class Reports extends CI_Controller {
 		$curmalfid = $this->session->userdata ( 'malfid' );
 		
 		$this->form_validation->set_rules ( 'description', 'Description', 'required' );
-
+		$this->form_validation->set_message('required', '{field} field is required');
 		
 		if ($this->form_validation->run () == true) {
 			
@@ -71,6 +71,7 @@ class Reports extends CI_Controller {
 		
 		$data ['reportname'] = $this->Report->getReportById ( $id );
 		$this->form_validation->set_rules ( 'description', 'Description', 'required' );
+		$this->form_validation->set_message('required', '{field} field is required');
 		
 		if ($this->form_validation->run () == true) {
 			
@@ -79,9 +80,8 @@ class Reports extends CI_Controller {
 		} 
 
 		else {
-			$data ['error_msg'] = 'Some problems occured, please try again.';
+			
 		}
-		
 		$this->load->view ('header');
 		$this->load->view ( 'reports/addreport', $data );
 	}

@@ -13,10 +13,12 @@
         	<label>Malfunction Date:*</label>
             <input type="text" class="form-control" name="date" placeholder="Malfunction Date" value="<?php echo !empty($result['date'])?$result['date']:''; ?>">
         </div>
+        <span class="text-danger"><?php echo form_error('date');?></span>
         <div class="form-group">
         	<label>Malfunction Time:*</label>
             <input type="text" class="form-control" name="time" placeholder="Malfunction Time" value="<?php echo !empty($result['time'])?$result['time']:''; ?>">
         </div>
+        <span class="text-danger"><?php echo form_error('time');?></span>
         <div class="form-group">
         	<label>
         	<input type="hidden" value="NO" name="fixed">

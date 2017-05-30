@@ -29,13 +29,13 @@ class DeviceTypes extends CI_Controller {
 		}
 		$this->form_validation->set_rules ( 'typename', 'TypeName', 'required' );
 		
+		$this->form_validation->set_message('required', '{field} field is required');
+		
 		if ($this->form_validation->run () == true) {
 			
 			$this->DeviceType->setType ();
 			redirect ( 'DeviceTypes/viewDeviceType' );
-		} else {
-			$data ['error_msg'] = 'Some problems occured, please try again.';
-		}
+		} 
 		
 		$this->load->view ('header');
 		$this->load->view ( 'devicetypes/adddevicetype' );
@@ -60,15 +60,13 @@ class DeviceTypes extends CI_Controller {
 		$data ['typename'] = $this->DeviceType->getTypeById ( $id );
 		$this->form_validation->set_rules ( 'typename', 'TypeName', 'required' );
 		
+		$this->form_validation->set_message('required', '{field} field is required');
+		
 		if ($this->form_validation->run () == true) {
 			
 			$this->DeviceType->setType ();
 			redirect ( 'DeviceTypes/viewDeviceType' );
 		} 
-
-		else {
-			$data ['error_msg'] = 'Some problems occured, please try again.';
-		}
 		
 		$this->load->view ('header');
 		$this->load->view ( 'devicetypes/adddevicetype', $data );

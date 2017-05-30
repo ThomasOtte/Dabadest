@@ -63,6 +63,11 @@ class Users extends CI_Controller {
             $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]');
             $this->form_validation->set_rules('password', 'password', 'required');
             $this->form_validation->set_rules('conf_password', 'confirm password', 'required|matches[password]');
+            
+            $this->form_validation->set_message('required', '{field} field is required');
+            $this->form_validation->set_message('valid-email', 'email is not valid');
+            $this->form_validation->set_message('is_unique', '{field} is already being used');
+            $this->form_validation->set_message('matches', 'passwords don\'t match');
 
             $userData = array(
                 'email' => strip_tags($this->input->post('email')),
@@ -74,8 +79,6 @@ class Users extends CI_Controller {
                 $insert = $this->user->insert($userData);
                 if($insert){
                     redirect('users/login');
-                }else{
-                    $data['error_msg'] = 'Some problems occured, please try again.';
                 }
             }
         }

@@ -24,13 +24,13 @@ class Malfunctions extends CI_Controller {
 		$this->form_validation->set_rules ( 'date', 'Date', 'required' );
 		$this->form_validation->set_rules ( 'time', 'Time', 'required' );
 		
+		$this->form_validation->set_message('required', '{field} field is required');
+		
 		if ($this->form_validation->run () == true) {
 			
 			$this->Malfunction->addMalfunction ();
 			redirect ( 'Malfunctions/viewMalfunction' );
-		} else {
-			$data ['error_msg'] = 'Some problems occured, please try again.';
-		}
+		} 
 		
 	    if ($this->session->userdata ( 'userState' ) == 1)
 		{
@@ -56,15 +56,14 @@ class Malfunctions extends CI_Controller {
 		$this->form_validation->set_rules ( 'date', 'Date', 'required' );
 		$this->form_validation->set_rules ( 'time', 'Time', 'required' );
 		
+		$this->form_validation->set_message('required', '{field} field is required');
+		
 		if ($this->form_validation->run () == true) {
 			
 			$this->Malfunction->editMalfunction ();
 			redirect ( 'Malfunctions/viewMalfunction' );
 		} 
 
-		else {
-			$data ['error_msg'] = 'Some problems occured, please try again.';
-		}
 		if ($this->session->userdata ( 'userState' ) == 1 || $this->session->userdata ( 'userState' ) == 2)
 		{
 			$malfid = $this->uri->segment ( 3 );

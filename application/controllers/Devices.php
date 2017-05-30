@@ -36,13 +36,13 @@ class Devices extends CI_Controller {
 		$this->form_validation->set_rules ( 'location', 'Location', 'required' );
 		$this->form_validation->set_rules ( 'acqdate', 'AcqDate', 'required' );
 		
+		$this->form_validation->set_message('required', '{field} field is required');
+		
 		if ($this->form_validation->run () == true) {
 			
 			$this->Device->setDevice ();
 			redirect ( base_url () . 'devices/viewdevice/' . $curslug );
-		} else {
-			$data ['error_msg'] = 'Some problems occured, please try again.';
-		}
+		} 
 		
 		$this->load->view ('header');
 		$this->load->view ( 'devices/adddevice' );
@@ -73,15 +73,14 @@ class Devices extends CI_Controller {
 		$this->form_validation->set_rules ( 'location', 'Location', 'required' );
 		$this->form_validation->set_rules ( 'acqdate', 'AcqDate', 'required' );
 		
+		$this->form_validation->set_message('required', '{field} field is required');
+		
 		if ($this->form_validation->run () == true) {
 			
 			$this->Device->setDevice ();
 			redirect ( base_url () . 'Devices/viewDevice/' . $curslug );
 		} 
 
-		else {
-			$data ['error_msg'] = 'Some problems occured, please try again.';
-		}
 		
 		$this->load->view ('header');
 		$this->load->view ( 'devices/adddevice', $data );

@@ -13,6 +13,7 @@
         	<label>Description (255 characters max):*</label>
             <textarea class="form-control" rows="6" name="description" placeholder="Malfunction Description" ><?php echo !empty($result['description'])?$result['description']:''; ?></textarea>
         </div>
+        <span class="text-danger"><?php echo form_error('description');?></span>
         <div class="form-group">
         	<label>Malfunction Cause (255 characters max):</label>
             <textarea class="form-control" rows="6" name="cause" placeholder="Malfunction Cause" ><?php echo !empty($result['cause'])?$result['cause']:''; ?></textarea>
