@@ -23,6 +23,20 @@ class DeviceTypes extends CI_Controller {
 			redirect ( 'users/login' );
 		}
 	}
+	
+	function json($id = null)
+	{
+		if ($id == null) {
+			$data['result'] = $this->DeviceType->getRows($id);
+		} else {
+			$data['result'] = $this->DeviceType->getDeviceTypeById($id);
+		}
+		$this->output
+		->set_content_type('application/json')
+		->set_output(json_encode($data));
+	}
+	
+	
 	public function addDeviceType() {
 		if ($this->session->userdata ( 'userState' ) != 2) {
 			redirect ( 'users/login' );

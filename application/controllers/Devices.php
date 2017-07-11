@@ -25,6 +25,19 @@ class Devices extends CI_Controller {
 			redirect ( 'users/login' );
 		}
 	}
+	
+	function json($id = null)
+	{
+		if ($id == null) {
+			$data['result'] = $this->Device->getRows($id);
+		} else {
+			$data['result'] = $this->Device->getDeviceById($id);
+		}
+		$this->output
+		->set_content_type('application/json')
+		->set_output(json_encode($data));
+	}
+	
 	public function addDevice() {
 		if ($this->session->userdata ( 'userState' ) != 2) {
 			redirect ( 'users/login' );
